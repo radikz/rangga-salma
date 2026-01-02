@@ -3,389 +3,557 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pernikahan Rangga & Salma</title>
+<title>The Wedding of Rangga & Salma</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+/* --- SETUP VARIABEL WARNA --- */
 :root {
-    --mahogany: #4a1c1c;
-    --dark: #0f0f0f;
-    --card: #1a1a1a;
-    --gold: #d4af37;
-    --text: #e5e5e5;
+    --mahogany: #582222;       /* Merah Kayu Gelap */
+    --mahogany-light: #8a3b3b; /* Merah Kayu Terang */
+    --gold: #bd9b5e;           /* Emas Kalem */
+    --cream: #f7f5f0;          /* Background Tenang */
+    --text-dark: #2c2c2c;
+    --text-light: #666666;
+    --white-glass: rgba(255, 255, 255, 0.85);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: var(--dark);
-    color: var(--text);
-    line-height: 1.7;
+    background-color: var(--cream);
+    /* Pattern halus untuk tekstur */
+    background-image: radial-gradient(#e0dcd3 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
+/* --- TYPOGRAPHY --- */
 h1, h2, h3 {
-    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--mahogany);
+    font-weight: 600;
 }
 
-h1 {
-    font-size: 2.8rem;
+.font-script {
+    font-family: 'Great Vibes', cursive;
+    color: var(--mahogany);
+    font-weight: 400;
 }
 
-h2 {
-    font-size: 2rem;
+.font-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--mahogany);
+    line-height: 2.2;
+    margin-bottom: 15px;
+    direction: rtl; /* Right to left */
+}
+
+/* --- UTILITIES --- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .divider {
-    width: 90px;
-    height: 3px;
-    background: var(--mahogany);
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-.hero {
-    min-height: 100vh;
-    background:
-        linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.9)),
-        url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17') center/cover;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    margin: 1.5rem auto;
+    width: 100px;
 }
-
-.hero p {
-    margin-top: 10px;
+.divider::before, .divider::after {
+    content: "";
+    height: 1px;
+    background: var(--gold);
+    flex: 1;
+}
+.divider span {
+    padding: 0 10px;
+    color: var(--gold);
     font-size: 1.2rem;
 }
 
-.card {
-    background: var(--card);
+/* --- HERO SECTION --- */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(88, 34, 34, 0.3), rgba(88, 34, 34, 0.5)),
+                url("https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: white;
+    padding: 20px;
+}
+
+header h4 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+}
+
+header h1 {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    margin: 10px 0;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #eee;
+}
+
+/* --- MAIN CONTENT CARD --- */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.glass-card {
+    background: var(--white-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
-    padding: 35px;
-    max-width: 950px;
-    margin: 25px auto;
-    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 50px 30px;
+    box-shadow: 0 15px 35px rgba(88, 34, 34, 0.08);
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.couple {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+.glass-card::before {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    opacity: 0.4;
+    pointer-events: none;
 }
 
-.countdown {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
+/* --- COUPLE SECTION --- */
+.couple-names {
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+.and-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+/* --- COUNTDOWN --- */
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .time-box {
     background: var(--mahogany);
-    padding: 20px;
+    color: white;
+    min-width: 80px;
+    padding: 15px 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(88, 34, 34, 0.2);
+}
+
+.time-box span {
+    display: block;
+    font-size: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.time-box small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* --- SLIDER DOA --- */
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    /* Height dibuat auto agar bisa menyesuaikan konten Arab */
+    min-height: 250px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide p {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.slide strong {
+    display: block;
+    margin-top: 15px;
+    color: var(--mahogany);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- BANK / GIFT SECTION --- */
+.bank-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.bank-item {
+    background: rgba(255,255,255, 0.6);
+    border: 1px dashed var(--gold);
     border-radius: 15px;
+    padding: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+    transition: transform 0.3s;
 }
 
-.time-box h3 {
-    font-size: 2.2rem;
-    color: var(--gold);
+.bank-item:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 30px;
+.bank-name {
+    font-weight: bold;
+    color: var(--mahogany);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.account-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin: 10px 0;
+}
+
+.btn-copy {
+    background: transparent;
+    border: 1px solid var(--mahogany);
+    color: var(--mahogany);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 5px;
+}
+
+.btn-copy:hover {
     background: var(--mahogany);
     color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: .3s;
 }
 
-.btn:hover {
-    background: #6a2a2a;
+/* --- BUTTON & MAP --- */
+.btn-mahogany {
+    display: inline-block;
+    background: var(--mahogany);
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(88, 34, 34, 0.3);
+    border: 1px solid transparent;
+}
+
+.btn-mahogany:hover {
+    background: transparent;
+    color: var(--mahogany);
+    border-color: var(--mahogany);
+    transform: translateY(-2px);
 }
 
 iframe {
     width: 100%;
     height: 350px;
-    border-radius: 15px;
     border: none;
+    border-radius: 15px;
+    filter: grayscale(20%);
     margin-top: 20px;
 }
 
+/* --- FOOTER --- */
 footer {
-    background: #080808;
+    background: var(--mahogany);
+    color: #e0dcd3;
     padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.fade {
+/* --- ANIMATION ON SCROLL --- */
+.reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: 1s;
+    transform: translateY(40px);
+    transition: all 1s ease;
 }
 
-.fade.show {
+.reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
-  
- /* SLIDER DOA */
-.slider {
-    position: relative;
-    overflow: hidden;
-}
 
-.slider-track {
-    display: flex;
-    transition: transform 0.6s ease;
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    header h1 { font-size: 3rem; }
+    .couple-names { font-size: 2rem; }
+    .glass-card { padding: 30px 20px; }
 }
-
-.slide {
-    min-width: 100%;
-    padding: 10px;
-}
-
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--mahogany);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 18px;
-}
-
-.slider-btn:hover {
-    background: #6a2a2a;
-}
-
-.slider-btn.left {
-    left: 10px;
-}
-
-.slider-btn.right {
-    right: 10px;
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero fade">
-    <h1>Undangan Pernikahan</h1>
-    <div class="divider"></div>
-    <p><strong>Rangga Dikarinata</strong> & <strong>Salma Maulida Oktora Padila</strong></p>
-    <p>16 Januari 2026</p>
-</section>
-
-<!-- COUNTDOWN -->
-<section class="fade">
-    <h2>Menuju Hari Bahagia</h2>
-    <div class="divider"></div>
-
-    <div class="card">
-        <div class="countdown" id="countdown">
-            <div class="time-box"><h3 id="days">0</h3>Hari</div>
-            <div class="time-box"><h3 id="hours">0</h3>Jam</div>
-            <div class="time-box"><h3 id="minutes">0</h3>Menit</div>
-            <div class="time-box"><h3 id="seconds">0</h3>Detik</div>
-        </div>
-
-        <!-- ADD TO GOOGLE CALENDAR -->
-        <a class="btn" target="_blank"
-           href="http://evt.to/ehhoagsuw">
-            Tambahkan ke Google Calendar
-        </a>
-
-        <p id="countdown-text" style="margin-top:20px;"></p>
+<header>
+    <div class="reveal">
+        <h4>The Wedding Of</h4>
+        <h1 class="font-script">Rangga & Salma</h1>
+        <div class="divider"><span>✦</span></div>
+        <p>Jumat, 16 Januari 2026</p>
     </div>
-</section>
+</header>
 
-<!-- MEMPELAI -->
-<section class="fade">
-    <h2>Mempelai</h2>
-    <div class="divider"></div>
+<div class="container">
 
-    <div class="card couple">
-        <div>
-            <h3>Rangga Dikarinata</h3>
-            <p>
-                Putra dari:<br>
-                Ibu Hadi Setyorini<br>
-                & Bapak Udik Subiyantoro
+    <section class="reveal">
+        <div class="glass-card">
+            <h2>Save The Date</h2>
+            <p style="color: var(--text-light); margin-top: 10px;">
+                Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
             </p>
-        </div>
+            
+            <div class="divider"><span>❤</span></div>
 
-        <div>
-            <h3>Salma Maulida Oktora Padila</h3>
-            <p>
-                Putri dari:<br>
-                Alm. Bapak Dedi Suhara<br>
-                & Ibu Nuryani WD Maskan
+            <div class="couple-names font-script">
+                Rangga Dikarinata
+                <div class="and-symbol">&</div>
+                Salma Maulida Oktora Padila
+            </div>
+
+            <div class="countdown-wrapper" id="countdown">
+                <div class="time-box"><span id="days">00</span><small>Hari</small></div>
+                <div class="time-box"><span id="hours">00</span><small>Jam</small></div>
+                <div class="time-box"><span id="minutes">00</span><small>Menit</small></div>
+                <div class="time-box"><span id="seconds">00</span><small>Detik</small></div>
+            </div>
+
+            <br><br>
+            <a href="http://evt.to/ehhoagsuw" target="_blank" class="btn-mahogany">
+                Simpan Tanggal
+            </a>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2>Doa & Harapan</h2>
+        <div class="divider"><span>✦</span></div>
+        
+        <div class="glass-card" style="padding: 30px;">
+            <div class="slider-container" id="quoteSlider">
+                <div class="slide active">
+                    <div class="font-arabic">
+                        وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةًۗ
+                    </div>
+                    <p>"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."</p>
+                    <strong>QS. Ar-Rum: 21</strong>
+                </div>
+                <div class="slide">
+                    <div class="font-arabic">
+                        رَبَّنَا هَبْ لَنَا مِنْ اَزْوَاجِنَا وَذُرِّيّٰتِنَا قُرَّةَ اَعْيُنٍ وَّاجْعَلْنَا لِلْمُتَّقِيْنَ اِمَامًا
+                    </div>
+                    <p>“Wahai Tuhan kami, anugerahkanlah kepada kami penyejuk mata dari pasangan dan keturunan kami serta jadikanlah kami sebagai pemimpin bagi orang-orang yang bertakwa.”</p>
+                    <strong>QS. Al-Furqon: 74</strong>
+                </div>
+                <div class="slide">
+                    <div class="font-arabic">
+                        بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى خَيْرٍ
+                    </div>
+                    <p>"Semoga Allah memberkahimu di waktu bahagia dan memberkahimu di waktu susah, serta mengumpulkan kalian berdua dalam kebaikan."</p>
+                    <strong>HR. Abu Daud, no. 2130; Tirmidzi, no. 1091</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="glass-card">
+            <h2>Lokasi Acara</h2>
+            <p class="and-symbol" style="font-size: 1rem; color: var(--text-light);">Gedung Serbaguna Impian, Kota Harapan</p>
+            
+            <iframe src="https://www.google.com/maps?q=Rumah+Kempol+Padaasih&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            
+            <br><br>
+            <a href="https://www.google.com/maps?q=Rumah+Kempol+Padaasih" target="_blank" class="btn-mahogany">
+                Buka Google Maps
+            </a>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="glass-card">
+            <h2>Wedding Gift</h2>
+            <div class="divider"><span>🎁</span></div>
+            <p style="color: var(--text-light); margin-bottom: 20px;">
+                Doa dan restu Anda adalah hadiah terindah bagi kami. Namun, bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih, kami menyediakan sarana digital di bawah ini untuk memudahkan
             </p>
+
+            <div class="bank-container">
+                <div class="bank-item">
+                    <div class="bank-name">BANK ARTOS/JAGO</div>
+                    <div class="account-number" id="rek1">501903317695</div>
+                    <div>a.n. Rangga Dikarinata</div>
+                    <button class="btn-copy" onclick="copyText('rek1', this)">Salin No. Rekening</button>
+                </div>
+
+                <div class="bank-item">
+                    <div class="bank-name">BANK MUAMALAT</div>
+                    <div class="account-number" id="rek2">1040030048</div>
+                    <div>a.n. Salma Maulida</div>
+                    <button class="btn-copy" onclick="copyText('rek2', this)">Salin No. Rekening</button>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- DOA -->
-<section class="fade">
-    <h2>Doa Pernikahan</h2>
-    <div class="divider"></div>
-
-    <div class="card slider">
-        <div class="slider-track" id="doaSlider">
-
-            <!-- DOA 1 -->
-            <div class="slide">
-                <p>
-                  <strong>وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةًۗ</strong><br><br>
-                    “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan
-                    untukmu agar kamu merasa tenteram, dan dijadikan-Nya di antara kamu rasa kasih
-                    dan sayang.”
-                    <br><br>
-                    <em>QS. Ar-Rum: 21</em>
-                </p>
-            </div>
-
-            <!-- DOA 2 -->
-            <div class="slide">
-                <p>
-                    <strong>رَبَّنَا هَبْ لَنَا مِنْ اَزْوَاجِنَا وَذُرِّيّٰتِنَا قُرَّةَ اَعْيُنٍ وَّاجْعَلْنَا لِلْمُتَّقِيْنَ اِمَامًا</strong><br><br>
-                    “Wahai Tuhan kami, anugerahkanlah kepada kami penyejuk mata dari pasangan dan 
-                    keturunan kami serta jadikanlah kami sebagai pemimpin bagi orang-orang yang 
-                    bertakwa.”
-                    <br><br>
-                    <em>QS. Al-Furqan: 74</em>
-                </p>
-            </div>
-
-            <!-- DOA 3 -->
-            <div class="slide">
-                <p>
-                  <strong>بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى خَيْرٍ</strong><br><br>
-                    “Semoga Allah memberkahimu di waktu bahagia dan memberkahimu di waktu susah,
-                    serta mengumpulkan kalian berdua dalam kebaikan.”
-                    <br><br>
-                    <em>HR. Abu Daud, no. 2130; Tirmidzi, no. 1091</em>
-                </p>
-            </div>
-
-        </div>
-
-        <!-- BUTTON -->
-        <button class="slider-btn left" onclick="prevSlide()">&#10094;</button>
-        <button class="slider-btn right" onclick="nextSlide()">&#10095;</button>
-    </div>
-</section>
-
-
-<!-- LOKASI -->
-<section class="fade">
-    <h2>Lokasi Acara</h2>
-    <div class="divider"></div>
-
-    <div class="card">
-        <p>Alamat Lengkap Acara Pernikahan</p>
-
-        <!-- GOOGLE MAPS FRAME -->
-        <iframe
-            src="https://www.google.com/maps?q=Rumah+kempol+padaasih&output=embed"
-            loading="lazy">
-        </iframe>
-    </div>
-</section>
-
-<!-- DONASI -->
-<section class="fade">
-    <h2>Hadiah Pernikahan</h2>
-    <div class="divider"></div>
-
-    <div class="card">
-        <p>
-            <strong>Bank Artos/Jago</strong><br>
-            501903317695<br>
-            a.n Rangga Dikarinata<br><br>
-
-            <strong>Bank Muamalat</strong><br>
-            1040030048<br>
-            a.n Salma Maulida Oktora Padila
-        </p>
-    </div>
-</section>
+</div>
 
 <footer>
-    <p>
-        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-        Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-    </p>
+    <h2 class="font-script" style="color: #fff; font-size: 2rem;">Rangga & Salma</h2>
+    <p style="margin-top: 10px; opacity: 0.7;">Terima kasih atas doa dan restu Anda.</p>
     <br>
-    <strong>Wassalamu’alaikum Warahmatullahi Wabarakatuh</strong>
+    <small>© 2026 Rangga - Salma</small>
 </footer>
 
 <script>
-/* FADE */
-const fades = document.querySelectorAll('.fade');
-const obs = new IntersectionObserver(e => {
-    e.forEach(x => x.isIntersecting && x.target.classList.add('show'));
-});
-fades.forEach(f => obs.observe(f));
+    /* --- COUNTDOWN LOGIC --- */
+    const targetDate = new Date("January 16, 2026 08:00:00").getTime();
 
-/* COUNTDOWN */
-const target = new Date("January 16, 2026 08:00:00").getTime();
-setInterval(() => {
-    const now = new Date().getTime();
-    const d = target - now;
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const gap = targetDate - now;
 
-    if (d <= 0) {
-        document.getElementById("countdown").style.display = "none";
-        document.getElementById("countdown-text").innerHTML =
-            "<strong>Alhamdulillah, hari pernikahan telah tiba 🤍</strong>";
-        return;
+        if (gap > 0) {
+            document.getElementById("days").innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((gap % (1000 * 60)) / 1000);
+        }
     }
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); 
 
-    days.innerText = Math.floor(d / (1000*60*60*24));
-    hours.innerText = Math.floor((d / (1000*60*60)) % 24);
-    minutes.innerText = Math.floor((d / 1000 / 60) % 60);
-    seconds.innerText = Math.floor((d / 1000) % 60);
-}, 1000);
+    /* --- SCROLL ANIMATION (REVEAL) --- */
+    const reveals = document.querySelectorAll('.reveal');
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85; 
+        reveals.forEach(reveal => {
+            const boxTop = reveal.getBoundingClientRect().top;
+            if (boxTop < triggerBottom) {
+                reveal.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+
+    /* --- AUTO SLIDER QUOTES --- */
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 6000); // Sedikit diperlambat jadi 6 detik karena ada bacaan Arab
+
+    /* --- COPY TO CLIPBOARD FUNCTION --- */
+    function copyText(elementId, btnElement) {
+        // Ambil teks nomor rekening
+        const textToCopy = document.getElementById(elementId).innerText;
+        
+        // Buat temporary textarea untuk copy
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Feedback ke user (Ubah teks tombol)
+            const originalText = btnElement.innerText;
+            btnElement.innerText = "Berhasil Disalin!";
+            btnElement.style.background = "var(--mahogany)";
+            btnElement.style.color = "white";
+
+            // Kembalikan tombol seperti semula setelah 2 detik
+            setTimeout(() => {
+                btnElement.innerText = originalText;
+                btnElement.style.background = "transparent";
+                btnElement.style.color = "var(--mahogany)";
+            }, 2000);
+        }).catch(err => {
+            console.error('Gagal menyalin', err);
+        });
+    }
 </script>
-  
-<script>
-/* SLIDER DOA */
-let currentSlide = 0;
-const slider = document.getElementById("doaSlider");
-const totalSlides = slider.children.length;
-
-function updateSlide() {
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlide();
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlide();
-}
-</script>
-
 
 </body>
 </html>
